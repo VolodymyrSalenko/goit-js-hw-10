@@ -12,7 +12,7 @@ const infoCountryEl = document.querySelector('.country-info');
 inputSearchEl.addEventListener('input', debounce(onSearchCountry, DEBOUNCE_DELAY));
 
 function onSearchCountry(e) {
-    nameCountry = e.target.value.trim();
+    const nameCountry = e.target.value.trim();
     console.log(nameCountry);
     if (nameCountry === '') {
         clearMarkup();
