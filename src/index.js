@@ -54,6 +54,7 @@ function renderListCountry(data) {
 function renderCountry(data) {
     const infoCountry = data.map(country => {
         getParam(country);
+        console.log(nameCountry);
         return `<div class="base-info">
                     <img width = "70" src=${flagCountry} alt="${textFlag}" />
                     <h2 class="name-country">${nameCountry}</h2>
@@ -76,13 +77,13 @@ function catchEror() {
 
 function getParam(obj) {
     console.log(obj);
-    return { name: { common: nameCountry },
-            flags: { svg: flagCountry, alt: textFlag },
-            languages,
-            population,
+    return {
+        name: { common: nameCountry },
+        flags: { svg: flagCountry, alt: textFlag },
+        languages,
+        population,
         capital
     } = obj;
-    console.log(nameCountry);
 };
 
 function clearMarkup() {
