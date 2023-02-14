@@ -34,9 +34,8 @@ function onSearchCountry(e) {
 };
 
 function renderListCountry(data) {
-    console.log(data);
-    const listCountry = data.map(country => {
 
+    const listCountry = data.map(country => {
         const { name: { common: nameCountry },
             flags: { svg: flagCountry, alt: textFlag } } = country;
         
@@ -79,19 +78,6 @@ function catchEror() {
     clearMarkup();
     Notiflix.Notify.failure('Oops, there is no country with that name');
 };
-
-// function getParam(obj) {
-//     console.log(obj);
-//     const param = {
-//         name: { common: nameCountry },
-//         flags: { svg: flagCountry, alt: textFlag },
-//         languages,
-//         population,
-//         capital
-//     } = obj;
-
-//     return param;
-// };
 
 function clearMarkup() {
     infoCountryEl.innerHTML = '';
