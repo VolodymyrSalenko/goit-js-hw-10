@@ -13,12 +13,11 @@ inputSearchEl.addEventListener('input', debounce(onSearchCountry, DEBOUNCE_DELAY
 
 function onSearchCountry(e) {
     const nameCountry = e.target.value.trim();
-    console.log(nameCountry);
     if (nameCountry === '') {
         clearMarkup();
         return;
     };
-    
+    console.log(nameCountry);
     fetchCountries(nameCountry)
     .then(data => {
         const countCountry = data.length;
