@@ -75,11 +75,14 @@ function catchEror() {
 };
 
 function getParam(obj) {
+    console.log(obj);
     return { name: { common: nameCountry },
             flags: { svg: flagCountry, alt: textFlag },
             languages,
             population,
-            capital} = obj;
+        capital
+    } = obj;
+    console.log(nameCountry);
 };
 
 function clearMarkup() {
