@@ -77,13 +77,15 @@ function catchEror() {
 
 function getParam(obj) {
     console.log(obj);
-    return {
+    const param = {
         name: { common: nameCountry },
         flags: { svg: flagCountry, alt: textFlag },
         languages,
         population,
         capital
     } = obj;
+
+    return param;
 };
 
 function clearMarkup() {
