@@ -26,7 +26,7 @@ function onSearchCountry(e) {
             clearMarkup();
             Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
         }
-        else if (countCountry >= 2 && countCountry <= 10) {renderListCountry(data)}
+        else if (countCountry >= 2 && countCountry <= 10) { renderListCountry(data) }
         else { renderCountry(data) };
     })
     .catch(catchEror);
@@ -36,25 +36,30 @@ function onSearchCountry(e) {
 function renderListCountry(data) {
     console.log(data);
     const listCountry = data.map(country => {
-        getParam(country);
+
+        const { name: { common: nameCountry },
+            flags: { svg: flagCountry, alt: textFlag } } = country;
+        
         return `<li class="country-item">
                     <img width = "50" src=${flagCountry} alt="${textFlag}" />
                     <h2 class="country-name">${nameCountry}</h2>
                 </li>`
     }).join('');
 
-    console.log(flagCountry);
-
     clearMarkup();    
     listCountryEl.innerHTML = listCountry;
-
-    console.log(nameCountry);
 };
 
 function renderCountry(data) {
     const infoCountry = data.map(country => {
-        getParam(country);
-        console.log(nameCountry);
+        const {
+            name: { common: nameCountry },
+            flags: { svg: flagCountry, alt: textFlag },
+            languages,
+            population,
+            capital
+        } = country;
+    
         return `<div class="base-info">
                     <img width = "70" src=${flagCountry} alt="${textFlag}" />
                     <h2 class="name-country">${nameCountry}</h2>
@@ -75,18 +80,18 @@ function catchEror() {
     Notiflix.Notify.failure('Oops, there is no country with that name');
 };
 
-function getParam(obj) {
-    console.log(obj);
-    const param = {
-        name: { common: nameCountry },
-        flags: { svg: flagCountry, alt: textFlag },
-        languages,
-        population,
-        capital
-    } = obj;
+// function getParam(obj) {
+//     console.log(obj);
+//     const param = {
+//         name: { common: nameCountry },
+//         flags: { svg: flagCountry, alt: textFlag },
+//         languages,
+//         population,
+//         capital
+//     } = obj;
 
-    return param;
-};
+//     return param;
+// };
 
 function clearMarkup() {
     infoCountryEl.innerHTML = '';
