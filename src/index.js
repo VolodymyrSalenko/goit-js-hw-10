@@ -17,7 +17,7 @@ function onSearchCountry(e) {
         clearMarkup();
         return;
     };
-    console.log(nameCountry);
+    
     fetchCountries(nameCountry)
     .then(data => {
         const countCountry = data.length;
@@ -34,6 +34,7 @@ function onSearchCountry(e) {
 };
 
 function renderListCountry(data) {
+    console.log(data);
     const listCountry = data.map(country => {
         getParam(country);
         return `<li class="country-item">
