@@ -43,8 +43,12 @@ function renderListCountry(data) {
                 </li>`
     }).join('');
 
+    console.log(flagCountry);
+
     clearMarkup();    
     listCountryEl.innerHTML = listCountry;
+
+    console.log(nameCountry);
 };
 
 function renderCountry(data) {
